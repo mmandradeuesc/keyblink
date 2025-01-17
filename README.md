@@ -1,4 +1,20 @@
-# keyblink
+# EmbarcaTech   
+### TAREFA 1 - U4C2O1234A, Unidade 4 - Capítulo 1
+#### Grupo 4 - Subgrupo 7
+#### Integrantes:
+
+
+#### Instruções de compilação
+
+* ##### Alternativamente
+
+
+
+
+
+
+
+
 Atividade Unidade 4 do Embarcatech
 
 Atividade 1 (Obrigatória): Controle de pinos GPIO com o
