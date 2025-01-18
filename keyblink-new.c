@@ -20,6 +20,7 @@ void MapRGB();
 void MapBuzzer();
 
 char TestKeys(const uint8_t*, const uint8_t*, const char(*)[4]);
+void UnsetPins();
 
 int main() {
     const uint8_t ROWS[VECTORSIZE] = {9, 8, 7, 6}; //Pinos das linhas do teclado matricial
@@ -40,6 +41,7 @@ int main() {
     return 0;
 }
 
+//Inicializa os componentes e o monitor serial
 void PicoInit(const uint8_t* ROWS, const uint8_t* COLUMNS){
     stdio_init_all();
     MapKeyboard(ROWS, COLUMNS); 
@@ -47,23 +49,21 @@ void PicoInit(const uint8_t* ROWS, const uint8_t* COLUMNS){
     MapBuzzer();
 }
 
+//Realiza a lógica do programa
 void PicoLoop(const uint8_t* ROWS, const uint8_t* COLUMNS, const char (*MAPPING)[4]){
     while (true) {
         char key = TestKeys(ROWS, COLUMNS, MAPPING);
         if (key != '$'){ // A lógica só é executada quando uma tecla for pressionada
-            if (key == '1') // Quando 1 for pressionado
-                gpio_put(GREEN, true);
-            else if (key == '2') // Quando D for pressionado
-                gpio_put(BLUE, true);
+            if (key == '1') 
+                gpio_put(GREEN, true); // Liga o LED verde
+            else if (key == '2') 
+                gpio_put(BLUE, true); // Liga o LED azul
             else if (key == '3')
-                gpio_put(RED, true);
+                gpio_put(RED, true); // Liga o LED vermelho
             else if (key == 'D')
-                gpio_put(BUZZER, true);
+                gpio_put(BUZZER, true); // Liga o buzzer
             else { // Quando qualquer outra coisa for pressionada, desliga tudo
-                gpio_put(GREEN, false);
-                gpio_put(RED, false);
-                gpio_put(BLUE, false);
-                gpio_put(BUZZER, false);
+                UnsetPins();
             }
             //printf("Key: %c\n", key); // Debug
         }
@@ -72,18 +72,21 @@ void PicoLoop(const uint8_t* ROWS, const uint8_t* COLUMNS, const char (*MAPPING)
     }
 }
 
+//Configura os pinos de entrada
 void SetInput(uint8_t pin) {
     gpio_init(pin);
     gpio_set_dir(pin, GPIO_IN);   
     gpio_pull_down(pin);          
 }
 
+//Configura os pinos de saída
 void SetOutput(uint8_t pin) {
     gpio_init(pin);
     gpio_set_dir(pin, GPIO_OUT);  
     gpio_put(pin, 0);             
 }
 
+//Mapeia o teclado
 void MapKeyboard(const uint8_t* ROWS, const uint8_t* COLUMNS) {
     for (int i = 0; i < VECTORSIZE; i++) {
         SetInput(ROWS[i]);  
@@ -91,6 +94,7 @@ void MapKeyboard(const uint8_t* ROWS, const uint8_t* COLUMNS) {
     }
 }
 
+//Mapeia os LEDs RGB
 void MapRGB(){
     for (int i = 11; i <= 13; i++) {//Pinos dos leds RGB
         //printf("pin %d \n", i);
@@ -98,10 +102,12 @@ void MapRGB(){
     }
 }
 
+//Mapeia o Buzzer
 void MapBuzzer(){
     SetOutput(BUZZER);
 }
 
+//Executa a captura dos botões pressionados no teclado
 char TestKeys(const uint8_t* ROWS, const uint8_t* COLUMNS, const char (*MAPPING)[4]) {
     for (int col = 0; col < VECTORSIZE; col++) {
         gpio_put(COLUMNS[col], 1); 
@@ -117,4 +123,12 @@ char TestKeys(const uint8_t* ROWS, const uint8_t* COLUMNS, const char (*MAPPING)
     }
 
     return '$'; 
+}
+
+//Desliga os pinos (põe todos em estados LOW)
+void UnsetPins(){
+    gpio_put(GREEN, false);
+    gpio_put(RED, false);
+    gpio_put(BLUE, false);
+    gpio_put(BUZZER, false);
 }
