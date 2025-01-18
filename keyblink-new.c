@@ -40,7 +40,8 @@ void PicoInit(const uint8_t* ROWS, const uint8_t* COLUMNS){
 void PicoLoop(const uint8_t* ROWS, const uint8_t* COLUMNS, const char (*mapping)[4]){
     while (true) {
         char key = TestKeys(ROWS, COLUMNS, mapping);
-        printf("Key: %c\n", key);
+        printf("Key: %c\n", key); // debug
+        sleep_ms(500); // Para conseguir ver o print, kkk
     }
 }
 
@@ -67,7 +68,6 @@ char TestKeys(const uint8_t* ROWS, const uint8_t* COLUMNS, const char (*mapping)
     for (int col = 0; col < VectorSize; col++) {
         gpio_put(COLUMNS[col], 1); 
 
-        
         for (int row = 0; row < VectorSize; row++) {
             if (gpio_get(ROWS[row])) { 
                 gpio_put(COLUMNS[col], 0); 
