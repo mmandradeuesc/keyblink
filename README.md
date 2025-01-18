@@ -14,7 +14,7 @@
 #### Instruções de compilação
  * Abra a pasta do projeto no VS CODE
  * Clique em Compile na barra inferior, do lado direito (ao lado esquerdo de RUN | PICO SDK)
- * Abra o Diagram.json
+ * Abra o diagram.json
  * Clique em Play
 
  ### Manual do programa
