@@ -18,6 +18,9 @@
  * Quando todas os LEDs forem desligados, inicia-se a interação com o teclado matricial. O usuário poderá acender os LEDS verde, azul e vermelho, ligando-os ao apertar os botões 1, 2 e 3, respectivamente. O buzzer é ligado ao se apertar o botão D.
  * Os componentes permanecem ligados até que seja apertado outro botão (um botão que não seja 1, 2, 3 nem D).
 
+### Metodologia do grupo
+* Por ser uma atividade pequena, optamos por todos desenvolvermos o código e o ambiente em nossas branches, e o código escolhido seria colocado na main, para apresentação. Dessa forma, a main tem os commits para o README de todos os integrantes, mas os commits do código que foi escolhido.
+
 
 #### Esta atividade foi desenvolvida como a resolução da atividade a seguir:
 ##### Atividade 1 (Obrigatória): Controle de pinos GPIO com o emprego de um teclado matricial.
