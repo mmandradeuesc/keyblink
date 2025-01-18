@@ -1,27 +1,42 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
 
+// Definições de constantes
+// definição do tamanho dos vetores (de linhas/colunas)
 #define VECTORSIZE 4
 
+// definição dos pinos dos componentes de saída
 #define BUZZER 21
 #define GREEN 11
 #define BLUE 12
 #define RED 13
 
-// Funções auxiliares
+
+// Declaração - Funções auxiliares
+// do funcionamento
 void PicoInit(const uint8_t*, const uint8_t*);
 void PicoLoop(const uint8_t*, const uint8_t*, const char (*)[4]);
 
+// de configuração de entrada/saída
 void SetInput(uint8_t);
 void SetOutput(uint8_t);
 
+// mapeamento
 void MapKeyboard(const uint8_t*, const uint8_t*);
 void MapRGB();
 void MapBuzzer();
 
+// módulos de teste
+void TestRGB();
+void TestBuzzer();
+void TestModules();
+
+// captura do pressionamento da tecla /teste das teclas 
 char TestKeys(const uint8_t*, const uint8_t*, const char(*)[4]);
+// desligar (colocar em LOW) os pinos
 void UnsetPins();
 
+// main
 int main() {
     const uint8_t ROWS[VECTORSIZE] = {9, 8, 7, 6}; //Pinos das linhas do teclado matricial
     const uint8_t COLUMNS[VECTORSIZE] = {5, 4, 3, 2}; //Pinos das colunas do teclado matricial
@@ -35,12 +50,14 @@ int main() {
         {'*', '0', '#', 'D'}  // 6
     };
 
-    PicoInit(ROWS, COLUMNS);
-    PicoLoop(ROWS, COLUMNS, MAPPING);
+    PicoInit(ROWS, COLUMNS); //Inicializa os componentes e o monitor serial
+    PicoLoop(ROWS, COLUMNS, MAPPING); //Realiza o laço de execução da lógica
 
     return 0;
 }
 
+
+//Definição das funções auxiliares (previamente declaradas)
 //Inicializa os componentes e o monitor serial
 void PicoInit(const uint8_t* ROWS, const uint8_t* COLUMNS){
     stdio_init_all();
@@ -51,6 +68,7 @@ void PicoInit(const uint8_t* ROWS, const uint8_t* COLUMNS){
 
 //Realiza a lógica do programa
 void PicoLoop(const uint8_t* ROWS, const uint8_t* COLUMNS, const char (*MAPPING)[4]){
+    TestModules(); //testa os componentes
     while (true) {
         char key = TestKeys(ROWS, COLUMNS, MAPPING);
         if (key != '$'){ // A lógica só é executada quando uma tecla for pressionada
@@ -100,6 +118,25 @@ void MapRGB(){
         //printf("pin %d \n", i);
         SetOutput(i);
     }
+}
+
+//Testa RGB
+void TestRGB(){
+    gpio_put(GREEN, 1);
+    gpio_put(BLUE, 1);
+    gpio_put(RED, 1);
+}
+
+//Testa Buzzer
+void TestBuzzer(){
+    gpio_put(BUZZER, 1);
+}
+
+void TestModules(){
+    TestRGB();
+    sleep_ms(500);
+    TestBuzzer();
+    UnsetPins();
 }
 
 //Mapeia o Buzzer
