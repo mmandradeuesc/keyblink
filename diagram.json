@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "author": "Wilton L. Silva",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-pi-pico-w",
+      "id": "pico",
+      "top": -118.45,
+      "left": 118.75,
+      "attrs": { "builder": "pico-sdk" }
+    },
+    {
+      "type": "wokwi-membrane-keypad",
+      "id": "keypad1",
+      "top": -510.8,
+      "left": -416.8,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -13.2,
+      "left": -53.8,
+      "attrs": { "color": "green" }
+    },
+    { "type": "wokwi-led", "id": "led2", "top": 54, "left": -53.8, "attrs": { "color": "blue" } },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 121.2,
+      "left": -53.8,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 157.55,
+      "left": -134.4,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 90.35,
+      "left": -134.4,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 23.15,
+      "left": -134.4,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -132,
+      "left": 433.8,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "keypad1:R1", "pico:GP0", "yellow", [ "v0" ] ],
+    [ "keypad1:R2", "pico:GP1", "yellow", [ "v0" ] ],
+    [ "keypad1:R3", "pico:GP2", "yellow", [ "v0" ] ],
+    [ "keypad1:R4", "pico:GP3", "yellow", [ "v0" ] ],
+    [ "keypad1:C1", "pico:GP4", "green", [ "v0" ] ],
+    [ "keypad1:C2", "pico:GP5", "green", [ "v0" ] ],
+    [ "keypad1:C3", "pico:GP6", "green", [ "v0" ] ],
+    [ "keypad1:C4", "pico:GP7", "green", [ "v0" ] ],
+    [ "led1:A", "pico:GP11", "cyan", [ "h67.2", "v-9.6" ] ],
+    [ "led2:A", "pico:GP12", "cyan", [ "h76.8", "v-57.64" ] ],
+    [ "led3:A", "pico:GP13", "cyan", [ "h86.4", "v-115.24" ] ],
+    [ "pico:GND.4", "r1:1", "magenta", [ "h-38.4", "v134.44", "h-220.8" ] ],
+    [ "r1:2", "led3:C", "magenta", [ "v0" ] ],
+    [ "r2:2", "led2:C", "magenta", [ "v0" ] ],
+    [ "r3:2", "led1:C", "magenta", [ "v0" ] ],
+    [ "r3:1", "r2:1", "magenta", [ "v0" ] ],
+    [ "r2:1", "r1:1", "magenta", [ "v0" ] ],
+    [ "pico:GND.7", "bz1:1", "black", [ "h0" ] ],
+    [ "bz1:2", "pico:GP27", "red", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
