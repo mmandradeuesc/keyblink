@@ -11,14 +11,48 @@
 
 
 #### Instruções de compilação
+Ambiente VS Code com o Pico SDK configurado.
+CMake e Make instalados.
+Simulador Wokwi integrado ao VS Code.
+Passos
+
+Clone o repositório:
+bash
+Copiar
+Editar
+git clone https://github.com/<usuario>/<repositorio>.git
+cd <repositorio>
+
+Crie uma pasta para os arquivos de compilação:
+bash
+Copiar
+Editar
+mkdir build
+cd build
+
+Configure o projeto com o CMake:
+bash
+Copiar
+Editar
+cmake ..
+
+Compile o código:
+bash
+Copiar
+Editar
+make
+
+Localize o arquivo .uf2 gerado na pasta build e envie-o para o RP2040:
+Conecte o microcontrolador ao computador pressionando o botão BOOTSEL.
+Arraste e solte o arquivo .uf2 na unidade montada.
 
 * ##### Alternativamente
+Se você preferir simular o projeto sem usar o hardware, siga estes passos:
 
-
-
-
-
-
+Abra o projeto no VS Code.
+Certifique-se de que a extensão do Wokwi está instalada.
+Crie um arquivo project.wokwi.json para definir os componentes simulados.
+Execute a simulação clicando em Run ou pressionando F5
 
 
 Atividade Unidade 4 do Embarcatech
