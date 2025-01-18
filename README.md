@@ -10,8 +10,14 @@
 
 
 #### Instruções de compilação
+ * Abra a pasta do projeto no VS CODE
+ * Clique em Compile na barra inferior, do lado direito (ao lado esquerdo de RUN | PICO SDK)
+ * Abra o Diagram.json
+ * Clique em Play
 
-* ##### Alternativamente
+ ### Manual do programa
+ O programa funciona para os LEDS verde, azul e vermelho, ligando-o ao apertar os botões 1, 2 e 3; e o buzzer liga ao apertar o botão D.
+ Os componentes permanecem ligados até que seja apertado outro botão (um botão que não seja 1, 2, 3 nem D).
 
 
 

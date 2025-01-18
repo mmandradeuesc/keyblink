@@ -65,7 +65,7 @@ void PicoLoop(const uint8_t* ROWS, const uint8_t* COLUMNS, const char (*MAPPING)
                 gpio_put(BLUE, false);
                 gpio_put(BUZZER, false);
             }
-            printf("Key: %c\n", key); // Debug
+            //printf("Key: %c\n", key); // Debug
         }
         //printf("Key: %c\n", key); // Debug
         sleep_ms(100); // Para conseguir ver o print, kkk
@@ -93,7 +93,7 @@ void MapKeyboard(const uint8_t* ROWS, const uint8_t* COLUMNS) {
 
 void MapRGB(){
     for (int i = 11; i <= 13; i++) {//Pinos dos leds RGB
-        printf("pin %d \n", i);
+        //printf("pin %d \n", i);
         SetOutput(i);
     }
 }
