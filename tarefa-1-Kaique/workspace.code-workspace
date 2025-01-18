@@ -1,0 +1,11 @@
+{
+	"folders": [],
+	"settings": {
+		"files.associations": {
+			"stdlib.h": "c",
+			"powerconverter.h": "c",
+			"temperatureconverter.h": "c",
+			"program.h": "c"
+		}
+	}
+}
