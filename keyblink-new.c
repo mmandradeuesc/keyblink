@@ -17,7 +17,7 @@ int main() {
     const uint8_t ROWS[VectorSize] = {9, 8, 7, 6}; 
     const uint8_t COLUMNS[VectorSize] = {5, 4, 3, 2}; 
 
-    const char mapping[4][4] = {
+    const char MAPPING[4][4] = {
 // colunas ->                      linhas \/        
     //    5    4    3    2    
         {'1', '2', '3', 'A'}, // 9
@@ -27,7 +27,7 @@ int main() {
     };
 
     PicoInit(ROWS, COLUMNS);
-    PicoLoop(ROWS, COLUMNS, mapping);
+    PicoLoop(ROWS, COLUMNS, MAPPING);
 
     return 0;
 }
@@ -37,9 +37,9 @@ void PicoInit(const uint8_t* ROWS, const uint8_t* COLUMNS){
     MapKeyboard(ROWS, COLUMNS); 
 }
 
-void PicoLoop(const uint8_t* ROWS, const uint8_t* COLUMNS, const char (*mapping)[4]){
+void PicoLoop(const uint8_t* ROWS, const uint8_t* COLUMNS, const char (*MAPPING)[4]){
     while (true) {
-        char key = TestKeys(ROWS, COLUMNS, mapping);
+        char key = TestKeys(ROWS, COLUMNS, MAPPING);
         printf("Key: %c\n", key); // debug
         sleep_ms(500); // Para conseguir ver o print, kkk
     }
@@ -64,14 +64,14 @@ void MapKeyboard(const uint8_t* ROWS, const uint8_t* COLUMNS) {
     }
 }
 
-char TestKeys(const uint8_t* ROWS, const uint8_t* COLUMNS, const char (*mapping)[4]) {
+char TestKeys(const uint8_t* ROWS, const uint8_t* COLUMNS, const char (*MAPPING)[4]) {
     for (int col = 0; col < VectorSize; col++) {
         gpio_put(COLUMNS[col], 1); 
 
         for (int row = 0; row < VectorSize; row++) {
             if (gpio_get(ROWS[row])) { 
                 gpio_put(COLUMNS[col], 0); 
-                return mapping[row][col]; 
+                return MAPPING[row][col]; 
             }
         }
 
