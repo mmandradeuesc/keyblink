@@ -28,7 +28,7 @@ Tecla '6': Ativa os LEDs azul e vermelho simultaneamente.
 Tecla 'A': Ativa o buzzer.
 Tecla 'B': Ativa todos os LEDs e o buzzer simultaneamente.
 
-As teclas apertadas pelo usuário são mostradas no console.
+As teclas que forem apertadas pelo usuário serão mostradas no console.
 
 #### Metodologia do grupo
 Por ser uma atividade pequena, optamos por todos desenvolvermos o código e o ambiente em nossas branches, e o código escolhido seria colocado na main, para apresentação. Dessa forma, a main tem os commits para o README de todos os integrantes, mas os commits do código que foi escolhido.
