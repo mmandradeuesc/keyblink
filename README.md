@@ -8,6 +8,8 @@
 * Hilquias Rodrigues de Oliveira
 * Gabriel Rocha Prado Martins
 * Kaique Rangel
+
+
 #### Instruções de compilação
  * Abra a pasta do projeto no VS CODE
  * Clique em Compile na barra inferior, do lado direito (ao lado esquerdo de RUN | PICO SDK)
