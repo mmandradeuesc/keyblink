@@ -39,6 +39,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/rvito/OneDrive/Escritorio/EmbarcaTech/EmbarcaTech/keyblink-new/build/pico-sdk/src/rp2_common/pico_lwip/tools/cmake_install.cmake")
+  include("C:/Users/rvito/OneDrive/Escritorio/EmbarcaTech/EmbarcaTech/keyblink/keyblink/build/pico-sdk/src/rp2_common/pico_lwip/tools/cmake_install.cmake")
 endif()
 

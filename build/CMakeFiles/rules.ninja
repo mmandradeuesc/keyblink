@@ -93,7 +93,7 @@ rule ASM_COMPILER__bs2_default_library_unscanned_Release
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = C:\Users\rvito\.pico-sdk\cmake\v3.29.9\bin\cmake.exe --regenerate-during-build -SC:\Users\rvito\OneDrive\Escritorio\EmbarcaTech\EmbarcaTech\keyblink-new -BC:\Users\rvito\OneDrive\Escritorio\EmbarcaTech\EmbarcaTech\keyblink-new\build
+  command = C:\Users\rvito\.pico-sdk\cmake\v3.29.9\bin\cmake.exe --regenerate-during-build -SC:\Users\rvito\OneDrive\Escritorio\EmbarcaTech\EmbarcaTech\keyblink\keyblink -BC:\Users\rvito\OneDrive\Escritorio\EmbarcaTech\EmbarcaTech\keyblink\keyblink\build
   description = Re-running CMake...
   generator = 1
 
