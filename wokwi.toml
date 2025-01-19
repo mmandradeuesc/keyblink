@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/keyblink-new.uf2'
+elf = 'build/keyblink-new.elf'
