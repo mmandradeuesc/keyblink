@@ -6,6 +6,7 @@
 * Roberto Vítor Lima Gomes Rodrigues
 * Davi Nascimento Leão
 * Hilquias Rodrigues de Oliveira
+* Gabriel Rocha Prado Martins
 
 #### Instruções de compilação
  * Abra a pasta do projeto no VS CODE
