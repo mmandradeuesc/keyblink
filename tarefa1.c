@@ -53,21 +53,32 @@ char read_keypad() {
 void handle_keypress(char key) { 
   switch (key) {    // Conjunto de caracteres para acionar o lede verde
     case '1':
+    case '2':
+    case '3':
+    case 'A':
       gpio_put(led_pin_green, 1);
       gpio_put(led_pin_blue, 0);
       gpio_put(led_pin_red, 0);
       break;
     case '4':        // Conjunto de caracteres para acionar o lede azul
+    case '5':
+    case '6':
+    case 'B':
       gpio_put(led_pin_green, 0);
       gpio_put(led_pin_blue, 1);
       gpio_put(led_pin_red, 0);
       break;
     case '7':        // Conjunto de caracteres para acionar o lede vermelho
+    case '8':
+    case '9':
+    case 'C':
       gpio_put(led_pin_green, 0);
       gpio_put(led_pin_blue, 0);
       gpio_put(led_pin_red, 1);
       break;
-    case '#': // Conjunto de caracteres para acionar o buzzer
+    case '*':       // Conjunto de caracteres para acionar o buzzer
+    case '#':
+    case 'D':
       gpio_put(buzzer_pin, 1);
       sleep_ms(500); // Toca o buzzer por 500ms
       gpio_put(buzzer_pin, 0);
