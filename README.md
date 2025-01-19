@@ -21,6 +21,9 @@
  * Quando todas os LEDs forem desligados, inicia-se a interação com o teclado matricial. O usuário poderá acender os LEDS verde, azul e vermelho, ligando-os ao apertar os botões 1, 2 e 3, respectivamente. O buzzer é ligado ao se apertar o botão D.
  * Os componentes permanecem ligados até que seja apertado outro botão (um botão que não seja 1, 2, 3 nem D).
 
+ ### Vídeo do funcionamento
+ * https://drive.google.com/file/d/1sayJCUczPZBxYvgQIzWS9qqHFM4sXIFJ/view?usp=sharing
+
 
 #### Esta atividade foi desenvolvida como a resolução da atividade a seguir:
 ##### Atividade 1 (Obrigatória): Controle de pinos GPIO com o emprego de um teclado matricial.
