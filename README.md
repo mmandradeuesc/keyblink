@@ -7,7 +7,7 @@
 * Davi Nascimento Leão
 * Hilquias Rodrigues de Oliveira
 * Gabriel Rocha Prado Martins
-* Kaique Rangel
+* Kaique Rangel da Silva
 
 
 #### Instruções de compilação
